@@ -20,7 +20,8 @@
 #define INL1b 22
 #define INL2a 25
 #define INL2b 24
-
+#define TrigPin
+#define EchoPin
 
 #define PERIOD 10 //控制周期
 #define V 20 //参考速度

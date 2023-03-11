@@ -13,6 +13,7 @@ typedef struct
   int output;
 } MOTOR;
 
+volatile long cnt;
 
 MOTOR motor1,motor2;
 
@@ -21,15 +22,12 @@ void setup() {
   Serial.begin(9600);
 //定时触发函数
 TCCR1B = TCCR1B & B11111000 | B00000001;
-MsTimer2::set(PERIOD, control);
-MsTimer2::start();
+
 //初始化编码器引脚，添加触发函数
 pinMode(ENCODER_A1, INPUT);
 pinMode(ENCODER_B1, INPUT);
 pinMode(ENCODER_A2, INPUT);
 pinMode(ENCODER_B2, INPUT);
-attachInterrupt(0, getEncoder1, CHANGE);
-attachInterrupt(1, getEncoder2, CHANGE);
 
 pinMode(PWM1, OUTPUT);
 pinMode(PWM2, OUTPUT);
@@ -48,6 +46,18 @@ pinMode(INL1a, OUTPUT);
 pinMode(INL1b, OUTPUT);
 pinMode(INL2a, OUTPUT);
 pinMode(INL2b, OUTPUT);
+
+pinMode(TrigPin, OUTPUT);
+pinMode(EchoPin, INPUT);
+
+CatchUp();
+
+attachInterrupt(0, getEncoder1, CHANGE);
+attachInterrupt(1, getEncoder2, CHANGE);
+
+MsTimer2::set(PERIOD, control);
+MsTimer2::set(5*PERIOD, Count);
+MsTimer2::start();
 }
 
 void loop() {
