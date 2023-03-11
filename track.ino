@@ -6,7 +6,8 @@ void Track()
 {
   // motor1.target=V;
   // motor2.target=V;
-  int i,j;
+  int i,j,flag;
+  flag=1;
   int pin[9];
   int pin_statu[9];
   pin[0]=L4;pin[1]=L3;pin[2]=L2;pin[3]=L1;pin[4]=M;pin[5]=R1;pin[6]=R2;pin[7]=R3;pin[8]=R4;
@@ -23,15 +24,18 @@ void Track()
   {
     motor1.target=0.5*V;
     motor2.target=-0.5*V;
+    flag=0;
   }
   if(pin_statu[0] && pin_statu[1] && pin_statu[2])
 
   {
     motor1.target=-0.5*V;
     motor2.target=0.5*V;
+    flag=0;
   }
 
-
+  if(flag)
+  {
   if (pin_statu[4])
   {
     motor1.target=V;
@@ -77,7 +81,7 @@ void Track()
     motor1.target=0.8*V;
     motor2.target=0.1*V;
   }
-
+  }
 
 
 
