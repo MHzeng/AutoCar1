@@ -19,22 +19,25 @@ if(cm<=50)
 void Avoid(void)
 {
   volatile long begincnt=cnt;
-  if(cnt<=begincnt+10)
+  int time1=10;
+  int time2=50;
+  int time3=20;
+  if(cnt<=begincnt+time1)
   {
     motor1.target=V;
     motor2.target=-V;
   }
-  if(cnt>=begincnt+11&&cnt<=begincnt+60)
+  if(cnt>=begincnt+time1+1&&cnt<=begincnt+time1+time2)
   {
     motor1.target=V;
     motor2.target=V;
   }
-  if(cnt>=begincnt+61&&cnt<=begincnt+80);
+  if(cnt>=begincnt+time1+time2+1&&cnt<=begincnt+time1+time2+time3);
   {
     motor1.target=-V;
     motor2.target=V;
   }
-  if(cnt>=begincnt+81)
+  if(cnt>=begincnt+time1+time2+time3+1)
   {
     motor1.target=V;
     motor2.target=V;
