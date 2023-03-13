@@ -1,5 +1,6 @@
 #ifndef _CONST_H_
 #define _CONST_H_
+#include <Servo.h>
 
 #define ENCODER_A1 2 //电机 1 
 #define ENCODER_B1 5
@@ -20,12 +21,14 @@
 #define INL1b 22
 #define INL2a 25
 #define INL2b 24
-#define TrigPin
-#define EchoPin
+#define TrigPin 32
+#define EchoPin 33
 
 #define PERIOD 10 //控制周期
 #define V 20 //参考速度
 
+Servo servo1;
+Servo servo2;
 
 
 

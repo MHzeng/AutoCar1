@@ -19,7 +19,11 @@ void Track()
   {
     if ( digitalRead(pin[i]) == HIGH) pin_statu[i] = 1;
   }
-  if (pin_statu[0] && pin_statu[8]) Stop();
+  if (pin_statu[0] && pin_statu[8])
+  { 
+  Stop();
+  return;
+  } //停止程序
   if (pin_statu[6] && pin_statu[7] && pin_statu[8] )
   {
     motor1.target=0.5*V;

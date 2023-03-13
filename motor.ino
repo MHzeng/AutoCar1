@@ -59,7 +59,23 @@ void getEncoder2(void)//电机2编码器读取
 
 void control(void) //读取红外探测器 获得期望速度
 {
-Track();
+cnt++;
+if(detectstatu==1)
+{
+  ultrasonic();
+}
+if(stopstatu==1)
+{
+  End();
+}
+if(stopstatu==0&&avoidstatu==0)
+{
+  Track();
+}
+if(avoidstatu==1)
+{
+  Avoid();
+}
   
 
 

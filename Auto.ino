@@ -15,6 +15,12 @@ typedef struct
 
 volatile long cnt;
 
+int stopstatu=0;
+int avoidstatu=0;
+int detectstatu=1;
+
+int cm=100;
+
 MOTOR motor1,motor2;
 
 void setup() {
@@ -56,7 +62,6 @@ attachInterrupt(0, getEncoder1, CHANGE);
 attachInterrupt(1, getEncoder2, CHANGE);
 
 MsTimer2::set(PERIOD, control);
-MsTimer2::set(5*PERIOD, Count);
 MsTimer2::start();
 }
 
