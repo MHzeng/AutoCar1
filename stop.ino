@@ -2,6 +2,7 @@
 
 void Stop(void)
 {
+  stopcnt=cnt;
   motor1.target=0;
   motor2.target=0;
   stopstatu=1;
@@ -9,31 +10,37 @@ void Stop(void)
 
 void End(void)
 {
-  long begincnt=cnt;
+  
   int time1=20;
-  int time2=80;
-  int time3=30;
-  int time4=70;
-  if(cnt>=begincnt+time1&&cnt<=begincnt+time1+time2)
-  {
-    motor1.target=V;
-    motor2.target=-V;
-  }
-  if(cnt==begincnt+time1+time2+1)
+  int time2=45;
+  int time3=20;
+  int time4=20;
+  int time5=30;
+  int time6=70;
+  if(cnt<=stopcnt+time1)
   {
     motor1.target=0;
     motor2.target=0;
   }
-  if(cnt==begincnt+time1+time2+time3)
+  if(cnt>=stopcnt+time1&&cnt<=stopcnt+time1+time2)
   {
-    servo2.write(135);
+    motor1.target=V;
+    motor2.target=-V;
   }
-  if(cnt==begincnt+time1+time2+time3+time4)
+  if(cnt>=stopcnt+time1+time2+1&&cnt<=stopcnt+time1+time2+time3)
   {
-    servo1.write(90);  
+    motor1.target=0;
+    motor2.target=0;
   }
-  if(cnt>begincnt+time1+time2+time3+time4)
+  if(cnt>=stopcnt+time1+time2+time3+1&&cnt<=stopcnt+time1+time2+time3+time4)
   {
-    exit(0);
+    motor1.target=-V;
+    motor2.target=-V;
   }
+  if(cnt>=stopcnt+time1+time2+time3+time4+1)
+  {
+    motor1.target=0;
+    motor2.target=0;
+  }
+
 }

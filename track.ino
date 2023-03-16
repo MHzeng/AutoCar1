@@ -47,43 +47,45 @@ void Track()
   }
   if (pin_statu[3]) //低左转
   {
-    motor1.target=0.8*V;
-    motor2.target=V;
+    motor1.target=0.75*V;
+    motor2.target=0.9*V;
   }
   if (pin_statu[5]) //低右转
   {
-    motor1.target=V;
-    motor2.target=0.8*V;
+    motor1.target=0.9*V;
+    motor2.target=0.75*V;
   }
   if (pin_statu[2]) //中左转
   {
-    motor1.target=0.6*V;
-    motor2.target=0.9*V;
+    motor1.target=0.45*V;
+    motor2.target=0.75*V;
   }
   if (pin_statu[6]) //中右转
   {
-    motor1.target=0.9*V;
-    motor2.target=0.6*V;
+    motor1.target=0.75*V;
+    motor2.target=0.45*V;
   }
   if (pin_statu[1]) //high左转
   {
-    motor1.target=0.4*V;
-    motor2.target=0.8*V;
+    motor1.target=0.05*V;
+    motor2.target=0.7*V;
   }
   if (pin_statu[7]) //high右转
   {
-    motor1.target=0.8*V;
-    motor2.target=0.4*V;
+    motor1.target=0.7*V;
+    motor2.target=0.05*V;
   }
   if (pin_statu[0]) //直角左转
   {
-    motor1.target=0.1*V;
-    motor2.target=0.8*V;
+    motor1.target=0*V;
+    motor2.target=0.65*V;
+    lastpin=0;
   }
   if (pin_statu[8]) //直角右转
   {
-    motor1.target=0.8*V;
-    motor2.target=0.1*V;
+    motor1.target=0.65*V;
+    motor2.target=0*V;
+    lastpin=8;
   }
   }
 
