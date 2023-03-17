@@ -27,7 +27,7 @@
 #define PIN_SERVO2 11 //夹爪
 
 #define PERIOD 10 //控制周期
-#define V 25 //参考速度
+#define V 15 //参考速度
 
 Servo servo1;
 Servo servo2;

@@ -12,7 +12,7 @@ cm = pulseIn(EchoPin, HIGH) / 58; //将回波时间换算成 cm
 cm = (int(cm * 100)) / 100; //保留两位小数
 if(cnt>=10)
 {
-if(cm<=10)
+if(cm<=15)
 {
   avoidstatu=1;
   detectcnt=cnt;
@@ -25,11 +25,11 @@ if(cm<=10)
 void Avoid(void)
 {
   int time1=100;
-  int time2=20;
+  int time2=28;
   int time3=100;
   int time4=100;
   int time5=100;
-  int time6=30;
+  int time6=42;
   int time7=100;
   if(cnt<=detectcnt+time1)
   {
